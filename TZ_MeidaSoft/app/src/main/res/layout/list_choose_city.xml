@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90sp"
+    android:background="@drawable/choose_city"
+    android:padding="20sp"
+    android:layout_marginBottom="15sp"
+    android:columnCount="2">
+
+    <TextView
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:id="@+id/city_name_list"
+        android:text="Ульяновск"
+        android:layout_gravity="left|center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textSize="36sp"
+        android:textColor="@color/white"
+        android:layout_gravity="right|center_vertical"
+        android:id="@+id/city_degree"
+        android:text="31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</GridLayout>

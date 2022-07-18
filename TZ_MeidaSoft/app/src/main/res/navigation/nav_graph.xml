@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/chooseCityFragment">
+
+    <fragment
+        android:id="@+id/todayWeatherFragment"
+        android:name="com.example.tz_meidasoft.presentation.TodayWeather.TodayWeatherFragment"
+        android:label="fragment_today_weather"
+        tools:layout="@layout/fragment_today_weather" >
+        <action
+            android:id="@+id/action_todayWeatherFragment_to_nextDaysWeatherFragment"
+            app:destination="@id/nextDaysWeatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseCityFragment"
+        android:name="com.example.tz_meidasoft.presentation.City.ChooseCityFragment"
+        android:label="choose_city_fragment"
+        tools:layout="@layout/choose_city_fragment" >
+        <action
+            android:id="@+id/action_chooseCityFragment_to_todayWeatherFragment"
+            app:destination="@id/todayWeatherFragment"
+            app:popUpTo="@id/todayWeatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nextDaysWeatherFragment"
+        android:name="com.example.tz_meidasoft.presentation.NextDaysWeather.NextDaysWeatherFragment"
+        android:label="next_days_weather_fragment"
+        tools:layout="@layout/next_days_weather_fragment" />
+</navigation>

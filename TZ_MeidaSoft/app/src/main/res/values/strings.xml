@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TZ_MeidaSoft</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_choose_weather">Выберите город</string>
+    <string name="title_forecast_next_days">Прогноз на 10 дней</string>
+</resources>
