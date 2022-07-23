@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.ContextMenu
+import android.view.View
 import com.example.tz_meidasoft.R
 
 class MainActivity : AppCompatActivity() {
@@ -20,4 +22,6 @@ class MainActivity : AppCompatActivity() {
         }, 3000)
 
     }
+
+
 }

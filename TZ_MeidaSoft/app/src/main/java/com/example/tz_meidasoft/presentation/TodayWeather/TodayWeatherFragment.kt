@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.tz_meidasoft.R
 import com.example.tz_meidasoft.databinding.FragmentTodayWeatherBinding
-import com.example.tz_meidasoft.presentation.adapter.AdapterNextDays.AdapterNextDays
+import com.example.tz_meidasoft.presentation.adapter.AdapterToday.AdapterTodayNextDays
 import java.lang.RuntimeException
 
 
@@ -37,10 +37,11 @@ class TodayWeatherFragment : Fragment() {
         weatherViewModel = ViewModelProvider(this)[WeatherViewModel::class.java]
 
         if (isConnect()){
-            setDataWeather()
+            getDataWeatherWithParam()
             setAdapter()
         } else {
-
+            val dialog = DialogConnect()
+            dialog.show(childFragmentManager, "customConnectDialog")
         }
 
         binding.forecast.setOnClickListener {
@@ -48,6 +49,22 @@ class TodayWeatherFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun getDataWeatherWithParam(){
+        weatherViewModel.getWeather2(
+            "Ульяновск",
+            1,
+            "87dcdc26b0bccc33955d2e4e2cf87795",
+            "ru",
+            "metric"
+        )
+        weatherViewModel.response2.observe(viewLifecycleOwner){
+            if (it.isSuccessful){
+                Log.d("ResponseWeather", it.body().toString())
+            }
+        }
+
     }
 
     private fun setDataWeather() {
@@ -74,7 +91,7 @@ class TodayWeatherFragment : Fragment() {
         list.add("Сегодня")
         list.add("Завтра")
         list.add("Послезватра")
-        binding.nextDaysRecycler.adapter = AdapterNextDays(list)
+        binding.nextDaysRecycler.adapter = AdapterTodayNextDays(list)
     }
 
     private fun isConnect () : Boolean {

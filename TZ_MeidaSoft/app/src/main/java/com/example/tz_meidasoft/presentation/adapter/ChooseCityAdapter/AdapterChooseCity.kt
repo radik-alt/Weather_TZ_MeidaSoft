@@ -5,8 +5,11 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tz_meidasoft.R
+import com.example.tz_meidasoft.data.room.City
+import com.example.tz_meidasoft.presentation.Interface.ChooseCity
 
-class AdapterChooseCity(val list: ArrayList<String>) : RecyclerView.Adapter<ViewHolderChooseCity>() {
+class AdapterChooseCity(val list: ArrayList<City>, val chooseCity: ChooseCity) : RecyclerView.Adapter<ViewHolderChooseCity>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderChooseCity {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_choose_city, parent, false)
@@ -14,10 +17,10 @@ class AdapterChooseCity(val list: ArrayList<String>) : RecyclerView.Adapter<View
     }
 
     override fun onBindViewHolder(holder: ViewHolderChooseCity, position: Int) {
-        holder.city.text = list[position]
+        holder.city.text = list[position].city
 
         holder.itemView.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_chooseCityFragment_to_todayWeatherFragment)
+            chooseCity.selectCity(list[position].city)
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.tz_meidasoft.presentation.adapter.AdapterNextDays
+package com.example.tz_meidasoft.presentation.adapter.AdapterToday
 
 import android.view.View
 import android.widget.ImageView

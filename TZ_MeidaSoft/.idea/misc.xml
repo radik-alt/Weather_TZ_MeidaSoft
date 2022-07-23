@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/drawable/background_dialog.xml" value="0.2075" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/drawable/button.xml" value="0.2025" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/drawable/choose_city.xml" value="0.2025" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/choose_city_fragment.xml" value="0.2" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/custom_actionbar.xml" value="0.2" />
+        <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/dialog_connect.xml" value="0.33" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/fragment_today_weather.xml" value="0.33" />
+        <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/item_inside_next_days.xml" value="0.2" />
+        <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/item_next_days.xml" value="0.2" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/list_choose_city.xml" value="0.2" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/next_days_weather_fragment.xml" value="0.2" />
         <entry key="..\:/Users/Radik/Documents/git/TZ_MeidaSoft/app/src/main/res/layout/weather_three.xml" value="0.2" />
