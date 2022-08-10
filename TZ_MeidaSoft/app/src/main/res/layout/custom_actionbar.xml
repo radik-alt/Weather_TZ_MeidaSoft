@@ -3,12 +3,13 @@
     android:background="@color/primaryColor"
     android:layout_width="match_parent"
     android:gravity="center"
-    android:layout_height="50sp">
+    android:layout_height="60sp">
 
     <TextView
+        android:id="@+id/nameToolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
+        android:text="Погода"
         android:textColor="@color/white"
         android:textSize="20sp" />
 

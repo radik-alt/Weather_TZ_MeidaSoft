@@ -1,4 +1,4 @@
-package com.example.tz_meidasoft.data.entity
+package com.example.tz_meidasoft.data.entity.apiModel
 
 data class ApiModel(
     val city: City,

@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import com.example.tz_meidasoft.R
 import com.example.tz_meidasoft.databinding.ActivityHomeBinding

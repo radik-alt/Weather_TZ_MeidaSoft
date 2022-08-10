@@ -2,17 +2,23 @@ package com.example.tz_meidasoft.presentation.adapter.ChooseCityAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tz_meidasoft.R
-import com.example.tz_meidasoft.data.room.City
-import com.example.tz_meidasoft.presentation.Interface.ChooseCity
+import com.example.tz_meidasoft.domain.entity.CityDomain
+import com.example.tz_meidasoft.presentation.adapter.Interface.ChooseCity
 
-class AdapterChooseCity(val list: ArrayList<City>, val chooseCity: ChooseCity) : RecyclerView.Adapter<ViewHolderChooseCity>() {
+class AdapterChooseCity(
+    private val list: ArrayList<CityDomain>,
+    private val chooseCity: ChooseCity
+) : RecyclerView.Adapter<ViewHolderChooseCity>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderChooseCity {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_choose_city, parent, false)
+        val layout = when(viewType){
+            ACTIVITY -> R.layout.list_choose_city_activity
+            else -> R.layout.list_choose_city
+        }
+        val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
         return ViewHolderChooseCity(view)
     }
 
@@ -24,5 +30,23 @@ class AdapterChooseCity(val list: ArrayList<City>, val chooseCity: ChooseCity) :
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return if(list[position].used){
+            ACTIVITY
+        } else{
+          NO_ACTIVITY
+        }
+    }
+
+    fun setData(newList:ArrayList<CityDomain>){
+
+    }
+
     override fun getItemCount(): Int = list.size
+
+
+    companion object{
+        private const val ACTIVITY = 1
+        private const val NO_ACTIVITY = 0
+    }
 }

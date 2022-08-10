@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +8,9 @@
     android:orientation="vertical"
     tools:context=".presentation.NextDaysWeather.NextDaysWeatherFragment">
 
+
     <TextView
+        android:id="@+id/titleFragment"
         android:textSize="24sp"
         android:textColor="@color/black"
         android:text="@string/title_forecast_next_days"
@@ -17,10 +19,17 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="25sp"
         android:id="@+id/weatherRecycler"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleFragment"
+        android:layout_marginTop="25sp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-</LinearLayout>
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        android:id="@+id/layoutNextDays"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
+
+</RelativeLayout>

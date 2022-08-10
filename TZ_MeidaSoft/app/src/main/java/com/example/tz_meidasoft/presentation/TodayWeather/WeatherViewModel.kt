@@ -1,41 +1,38 @@
 package com.example.tz_meidasoft.presentation.TodayWeather
 
 import android.app.Application
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tz_meidasoft.data.entity.ApiModel
-import com.example.tz_meidasoft.domain.repository.RepositoryApi
+import com.example.tz_meidasoft.data.entity.CityMapper
+import com.example.tz_meidasoft.data.repository.CityRepositoryImpl
+import com.example.tz_meidasoft.data.repository.RepositoryApiImpl
+import com.example.tz_meidasoft.data.room.DatabaseCity
+import com.example.tz_meidasoft.domain.entity.CityDomain
+import com.example.tz_meidasoft.domain.entity.apiDomain.ApiDomain
+import com.example.tz_meidasoft.domain.uescase.Api.GetApiDataCityName
+import com.example.tz_meidasoft.domain.uescase.DB.GetByUsedCity
 import kotlinx.coroutines.*
 import retrofit2.Response
 
 class WeatherViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repositoryApi: RepositoryApi = RepositoryApi()
-    val response: MutableLiveData<Response<ApiModel>> = MutableLiveData()
-    val response2: MutableLiveData<Response<ApiModel>> = MutableLiveData()
+    private val repositoryApiImpl: RepositoryApiImpl = RepositoryApiImpl()
+    val responseApi: MutableLiveData<Response<ApiDomain>> = MutableLiveData()
 
+    private val dao = DatabaseCity.getDatabaseCity(application).daoCity()
+    private val mapper = CityMapper()
+    private val repo = CityRepositoryImpl(dao, mapper)
+    private val repoApi = RepositoryApiImpl()
 
-    fun getWeather() {
-        viewModelScope.launch {
-            response.value = repositoryApi.getWeather()
-        }
+    fun getUsedCity():LiveData<CityDomain>{
+        return GetByUsedCity(repo).getByUsedCity()
     }
 
-    fun getWeather2(
-        city: String,
-        numberCnt:Int,
-        apiKey:String,
-        language :String,
-        unitsMetric: String
-    ){
+    fun getWeatherCity(city:String){
         viewModelScope.launch {
-            response2.value = repositoryApi.getWeatherWithParam(city, numberCnt, apiKey, language, unitsMetric)
+            responseApi.value = GetApiDataCityName(repoApi).getApiDataCityName(city)
         }
     }
 

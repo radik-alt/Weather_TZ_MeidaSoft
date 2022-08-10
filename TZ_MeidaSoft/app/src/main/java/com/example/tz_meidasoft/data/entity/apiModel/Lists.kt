@@ -1,4 +1,4 @@
-package com.example.tz_meidasoft.data.entity
+package com.example.tz_meidasoft.data.entity.apiModel
 
 data class Lists(
     val dt: Int,
@@ -14,4 +14,5 @@ data class Lists(
     val gust: Double,
     val clouds: Int,
     val pop: Double,
+    val rain: Double?
 )
