@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="20sp"
     android:orientation="vertical"
+    android:background="@color/secondColor"
     tools:context=".presentation.NextDaysWeather.NextDaysWeatherFragment">
 
 
@@ -26,10 +27,6 @@
         android:layout_marginTop="25sp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
-<!--        android:id="@+id/layoutNextDays"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
 
 
 </RelativeLayout>

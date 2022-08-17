@@ -8,7 +8,7 @@ import com.example.tz_meidasoft.domain.entity.CityDomain
 import com.example.tz_meidasoft.presentation.adapter.Interface.ChooseCity
 
 class AdapterChooseCity(
-    private val list: ArrayList<CityDomain>,
+    private val list: List<CityDomain>,
     private val chooseCity: ChooseCity
 ) : RecyclerView.Adapter<ViewHolderChooseCity>() {
 
@@ -26,7 +26,7 @@ class AdapterChooseCity(
         holder.city.text = list[position].city
 
         holder.itemView.setOnClickListener {
-            chooseCity.selectCity(list[position].city)
+            chooseCity.selectCity(list[position])
         }
     }
 
@@ -36,10 +36,6 @@ class AdapterChooseCity(
         } else{
           NO_ACTIVITY
         }
-    }
-
-    fun setData(newList:ArrayList<CityDomain>){
-
     }
 
     override fun getItemCount(): Int = list.size

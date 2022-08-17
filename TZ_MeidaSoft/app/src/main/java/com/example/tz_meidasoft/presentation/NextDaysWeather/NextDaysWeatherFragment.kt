@@ -46,11 +46,6 @@ class NextDaysWeatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.layoutNextDays.setOnRefreshListener {
-//            getResponseData()
-//            binding.layoutNextDays.isRefreshing = false
-//        }
-
     }
 
     private fun getResponseData(){

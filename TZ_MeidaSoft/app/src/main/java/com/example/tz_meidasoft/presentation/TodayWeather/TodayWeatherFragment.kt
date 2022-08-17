@@ -17,6 +17,9 @@ import com.example.tz_meidasoft.domain.entity.CityDomain
 import com.example.tz_meidasoft.domain.entity.apiDomain.ApiDomain
 import com.example.tz_meidasoft.presentation.adapter.AdapterToday.AdapterTodayNextDays
 import java.lang.RuntimeException
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class TodayWeatherFragment : Fragment() {
@@ -33,7 +36,13 @@ class TodayWeatherFragment : Fragment() {
     private var city: CityDomain?=null
 
     override fun onResume() {
-        getUsedCity()
+        if (!isConnect()){
+            val dialog = DialogConnect()
+            dialog.isCancelable = false
+            dialog.show(childFragmentManager, dialog.tag)
+        } else {
+            getUsedCity()
+        }
         super.onResume()
     }
 
@@ -45,11 +54,6 @@ class TodayWeatherFragment : Fragment() {
         weatherViewModel = ViewModelProvider(this)[WeatherViewModel::class.java]
         setHasOptionsMenu(true)
 
-        if (!isConnect()){
-            val dialog = DialogConnect()
-            dialog.isCancelable = false
-            dialog.show(childFragmentManager, dialog.tag)
-        }
 
         return binding.root
     }
@@ -69,11 +73,15 @@ class TodayWeatherFragment : Fragment() {
         if (response != null){
             binding.nameCity.text = response?.city?.name
             binding.degreeWeather.text = Math.round(response?.list?.get(0)?.temp?.day!!).toString()
+            binding.sunrise.text = response?.let { it.list[0].sunrise.toLong() }?.let { convertLongToTime(it) }
+            binding.sunset.text = response?.let { it.list[0].sunset.toLong() }?.let { convertLongToTime(it) }
             binding.humidity.text = response!!.list[0].humidity.toString()
             binding.pressure.text = response!!.list[0].pressure.toString()
             binding.speedWind.text = response!!.list[0].speed.toString()
 
-            setAdapter()
+            if (response?.list?.size?:0 >= 3){
+                setAdapter()
+            }
         }
 
     }
@@ -100,7 +108,6 @@ class TodayWeatherFragment : Fragment() {
         weatherViewModel.getWeatherCity(city?.city ?: "Москва")
         weatherViewModel.responseApi.observe(viewLifecycleOwner){
             response = it.body()
-            Log.d("ResponseGetWeather", it.body().toString())
             delayGetDataFromApi()
             setDataWeather()
         }
@@ -115,6 +122,13 @@ class TodayWeatherFragment : Fragment() {
             binding.nextDaysRecycler.adapter = AdapterTodayNextDays(list)
         }
     }
+
+    private fun convertLongToTime(time: Long): String {
+        val date = Date(time)
+        val format = SimpleDateFormat("HH:mm")
+        return format.format(date)
+    }
+
 
     private fun isConnect () : Boolean {
         val connectManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

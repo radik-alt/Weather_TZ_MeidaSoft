@@ -8,6 +8,5 @@ import com.example.tz_meidasoft.R
 class ViewHolderChooseCity(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val city = itemView.findViewById<TextView>(R.id.city_name_list)
-    val degree = itemView.findViewById<TextView>(R.id.city_degree)
 
 }

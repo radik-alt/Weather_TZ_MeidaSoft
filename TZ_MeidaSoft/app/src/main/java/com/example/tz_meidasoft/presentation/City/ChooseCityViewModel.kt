@@ -10,6 +10,7 @@ import com.example.tz_meidasoft.domain.entity.CityDomain
 import com.example.tz_meidasoft.domain.uescase.DB.DeleteCity
 import com.example.tz_meidasoft.domain.uescase.DB.GetListCity
 import com.example.tz_meidasoft.domain.uescase.DB.InsertCity
+import com.example.tz_meidasoft.domain.uescase.DB.UpdateCity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,6 +27,14 @@ class ChooseCityViewModel(application: Application) : AndroidViewModel(applicati
 
     fun deleteCity(id:Long){
         DeleteCity(repository).deleteCity(id)
+    }
+
+    fun updateCity(city:CityDomain){
+        UpdateCity(repository).updateCity(city)
+    }
+
+    fun setOtherCityNotUsed(){
+        repository.setOtherCityNotUsed()
     }
 
     fun insertCity(city:CityDomain){

@@ -12,7 +12,7 @@
         android:visibility="visible"
         android:paddingBottom="20sp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/layoutProgress"
@@ -114,7 +114,7 @@
                     android:layout_marginStart="10sp"
                     android:layout_marginEnd="10sp"
                     android:background="@drawable/button"
-                    android:text="Прогноз на 10 дней"
+                    android:text="@string/button_next_days"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />
 
@@ -146,8 +146,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="19dp"
-                            android:layout_marginRight="10sp"
-                            android:text="Восход"
+                            android:layout_marginEnd="10sp"
+                            android:text="@string/sunset"
                             android:textColor="@color/white"
                             android:textSize="12sp" />
 
@@ -173,7 +173,7 @@
                             android:layout_height="wrap_content"
                             android:layout_columnWeight="1"
                             android:layout_marginRight="10sp"
-                            android:text="Закат"
+                            android:text="@string/sunrise"
                             android:textColor="@color/white"
                             android:textSize="12sp" />
 
@@ -200,7 +200,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_columnWeight="1"
-                            android:text="Ощущается"
+                            android:text="@string/feels_like"
                             android:textColor="@color/white"
                             android:textSize="12sp" />
 
